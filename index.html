@@ -96,7 +96,7 @@
         color: white; text-shadow: 2px 2px 0px var(--accent-blue);
         position: relative; display: inline-block; margin-bottom: 1.5rem;
       }
-      /* Glitch Effect reused */
+      /* Glitch Effect */
       .hero-content h1::before, .hero-content h1::after {
         content: attr(data-text); position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: var(--bg-dark);
       }
@@ -137,20 +137,30 @@
       .hero-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
       .hero-image:hover img { transform: scale(1.05); }
 
-      /* Schedule Preview */
+      /* Schedule Preview - UPDATED GRID */
       .schedule-section { padding: 4rem 2rem; max-width: 1200px; margin: 0 auto; }
       .section-title {
         font-family: 'JetBrains Mono', monospace; font-size: 2rem; margin-bottom: 3rem;
         color: white; text-align: center; border-bottom: 1px solid var(--accent-blue);
         display: inline-block; padding-bottom: 10px;
+        /* Center the title block */
+        position: relative; left: 50%; transform: translateX(-50%);
       }
-      .ctf-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; perspective: 1000px; }
+      
+      .ctf-grid { 
+        display: grid; 
+        /* Changed from auto-fit to explicit columns to ensure side-by-side */
+        grid-template-columns: repeat(3, 1fr); 
+        gap: 2rem; 
+        perspective: 1000px; 
+      }
       
       .ctf-card {
         background: var(--bg-panel); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05);
         border-radius: 12px; padding: 2rem; text-decoration: none; color: inherit;
         display: flex; flex-direction: column; align-items: center; text-align: center;
         transition: transform 0.1s; transform-style: preserve-3d; position: relative;
+        height: 100%; /* Ensure equal height */
       }
       .ctf-card:hover {
         border-color: rgba(0, 242, 255, 0.5); box-shadow: 0 0 30px rgba(0, 242, 255, 0.15); z-index: 10;
@@ -185,11 +195,27 @@
       .mobile-nav-link { color: white; font-family: 'JetBrains Mono'; font-size: 1.5rem; text-decoration: none; }
       .close-mobile-menu { position: absolute; top: 2rem; right: 2rem; background: none; border: none; color: white; font-size: 2.5rem; }
 
+      /* Tablet Breakpoint */
+      @media (max-width: 1024px) {
+        .ctf-grid {
+          grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+        }
+      }
+
+      /* Mobile Breakpoint */
       @media (max-width: 768px) {
         .nav-menu { display: none; } .burger { display: flex; }
-        .hero-section { grid-template-columns: 1fr; text-align: center; }
+        .hero-section { grid-template-columns: 1fr; text-align: center; padding-top: 6rem; }
+        .hero-actions { justify-content: center; }
         .footer-content { flex-direction: column; gap: 1rem; }
+        
+        .ctf-grid {
+          grid-template-columns: 1fr; /* 1 column on mobile */
+          gap: 1.5rem;
+        }
+        .hero-content h1 { font-size: 2.5rem; }
       }
+      
       .animate-in { animation: fadeUp 0.8s ease-out forwards; opacity: 0; }
       @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     </style>
@@ -230,7 +256,7 @@
             Since then, we've been playing regularly, improving our skills, and enjoying the challenges of CyberSecurity.
           </p>
           <div class="hero-actions">
-            <a href="https://ctftime.org/stats/2025?page=6" class="btn">Global Ranking</a>
+            <a href="https://ctftime.org/stats/2026?page=3" class="btn">Global Ranking</a>
             <a href="https://ctftime.org/stats/GR" class="btn">Country Ranking</a>
           </div>
         </div>
@@ -242,20 +268,20 @@
       <section class="schedule-section animate-in">
         <h2 class="section-title">Latest Activity</h2>
         <div class="ctf-grid">
-          <a href="https://ctftime.org/event/3003" class="ctf-card js-tilt">
-            <img src="https://ctftime.org/media/cache/92/10/92107db7f4f70f9a10f3de92f7ded129.png" alt="CTF Image" class="ctf-image" />
-            <h3 class="ctf-title">Metared Argentina</h3>
-            <p class="ctf-ranking">Rank: #21</p>
+          <a href="https://ctftime.org/event/3053" class="ctf-card js-tilt">
+            <img src="https://ctftime.org/media/cache/eb/72/eb72f766ca7ff85a3d8fd5d10d756ab1.png" alt="CTF Image" class="ctf-image" />
+            <h3 class="ctf-title">KnightCTF 2026</h3>
+            <p class="ctf-ranking">Rank: #129</p>
           </a>
-          <a href="https://ctftime.org/event/2714" class="ctf-card js-tilt">
-            <img src="https://ctftime.org/media/cache/41/d0/41d0d26352dc401c9827732a652746e1.png" alt="CTF Image" class="ctf-image" />
-            <h3 class="ctf-title">GlacierCTF 2025</h3>
-            <p class="ctf-ranking">Rank: #75</p>
+          <a href="https://ctftime.org/event/2969" class="ctf-card js-tilt">
+            <img src="https://ctftime.org/media/cache/da/4c/da4c52fb4f45b9334235d85fb0f325f2.png" alt="CTF Image" class="ctf-image" />
+            <h3 class="ctf-title">UofTCTF 2026</h3>
+            <p class="ctf-ranking">Rank: #94</p>
           </a>
-          <a href="https://ctftime.org/event/2920" class="ctf-card js-tilt">
-            <img src="https://ctftime.org/media/cache/fb/39/fb39be79a14e434587e5717218dd5af4.png" alt="CTF Image" class="ctf-image" />
-            <h3 class="ctf-title">V1t CTF 2025</h3>
-            <p class="ctf-ranking">Rank: #97</p>
+          <a href="https://ctftime.org/event/3037" class="ctf-card js-tilt">
+            <img src="https://ctftime.org/media/cache/6b/af/6baf4d2ceb5eb9afdb27622910d9b91f.png" alt="CTF Image" class="ctf-image" />
+            <h3 class="ctf-title">NexHunt CTF</h3>
+            <p class="ctf-ranking">Rank: #70</p>
           </a>
         </div>
       </section>
@@ -270,7 +296,7 @@
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M13.09 3.294c1.924.95 3.422 1.69 5.472.692a1 1 0 0 1 1.438.9v9.54a1 1 0 0 1-.562.9c-2.981 1.45-5.382.24-7.25-.701a38.739 38.739 0 0 0-.622-.31c-1.033-.497-1.887-.812-2.756-.77-.76.036-1.672.357-2.81 1.396V21a1 1 0 1 1-2 0V4.971a1 1 0 0 1 .297-.71c1.522-1.506 2.967-2.185 4.417-2.255 1.407-.068 2.653.453 3.72.967.225.108.443.216.655.32Z"/></svg>
             </a>
           </div>
-          <span class="footer-text">© 2025 1c3Gh3tt0</span>
+          <span class="footer-text">© 2026 1c3Gh3tt0</span>
         </div>
       </footer>
     </div>

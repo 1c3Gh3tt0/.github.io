@@ -73,9 +73,21 @@
 
       .floating-element {
         position: absolute; font-family: 'JetBrains Mono'; font-size: 0.9rem; color: rgba(0, 242, 255, 0.2);
-        animation: floatAround 20s infinite linear; pointer-events: none;
+        animation: floatAround 20s infinite linear; pointer-events: none; user-select: none;
       }
-      .f1 { top: 20%; left: 10%; } .f2 { top: 60%; right: 15%; animation-delay: 5s; } .f3 { bottom: 30%; left: 20%; animation-delay: 10s; }
+      
+      /* Positioning for 10 elements */
+      .f1 { top: 15%; left: 10%; animation-delay: 0s; }
+      .f2 { top: 60%; right: 15%; animation-delay: 2s; }
+      .f3 { bottom: 20%; left: 20%; animation-delay: 4s; }
+      .f4 { top: 10%; right: 25%; animation-delay: 1s; }
+      .f5 { bottom: 10%; right: 10%; animation-delay: 6s; }
+      .f6 { top: 40%; left: 5%; animation-delay: 3s; }
+      .f7 { bottom: 50%; left: 50%; animation-delay: 5s; }
+      .f8 { top: 75%; right: 40%; animation-delay: 7s; }
+      .f9 { top: 25%; left: 60%; animation-delay: 2.5s; }
+      .f10 { bottom: 5%; left: 5%; animation-delay: 8s; }
+
       @keyframes floatAround {
         0% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-20px) rotate(180deg); } 100% { transform: translateY(0) rotate(360deg); }
       }
@@ -87,14 +99,20 @@
       <div class="floating-element f1">SEGMENTATION_FAULT</div>
       <div class="floating-element f2">0x00000000</div>
       <div class="floating-element f3">ACCESS_DENIED</div>
+      <div class="floating-element f4">0xDEADBEEF</div>
+      <div class="floating-element f5">NULL_POINTER_EXCEPTION</div>
+      <div class="floating-element f6">KERNEL_PANIC</div>
+      <div class="floating-element f7">HEAP_CORRUPTION</div>
+      <div class="floating-element f8">0xC0000005</div>
+      <div class="floating-element f9">BUFFER_OVERRUN</div>
+      <div class="floating-element f10">ROOT_PRIVILEGES_REQUIRED</div>
 
       <div class="error-code">404</div>
       <h1 class="error-title">SYSTEM FAILURE</h1>
       <p class="error-message">
-        The flag you are looking for is not here. The page has been pwnd or never existed.
-        Return to base immediately.
+        The flag you are looking for is not here. Return to base immediately.
       </p>
-      <a href="index.html" class="btn">RETURN HOME</a>
+      <a href="./index.html" class="btn">RETURN HOME</a>
     </div>
   </body>
 </html>
